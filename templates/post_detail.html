@@ -13,6 +13,8 @@
         <p>{{ article.text}}</p>
         <p><b>Дата публикации: {{ article.date.date() }} </b></p>
         <a href="/posts" class="btn btn-warning">К списку статей >>></a>
+        <a href="/posts/{{article.id}}/del" class="btn btn-danger">удалить статью</a>
+        <a href="/posts/{{article.id}}/post_update" class="btn btn-success">редактировать статью</a>
     </div>
 
 </div>
