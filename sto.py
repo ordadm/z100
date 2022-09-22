@@ -20,9 +20,8 @@ from tqdm import updt #прогресс бар
 start_time = time.time()
 
 
-
 qtyprisoner: int = 100     # количество заключенных
-qtymissions: int = 1*10**5  # количество экспериментов
+qtymissions: int = 115  # количество экспериментов
 qtychance: int = 50      # количество коробочек которые можно открыть
 positiv = 0                 # количество успешных экспериментов
 

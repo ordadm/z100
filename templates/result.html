@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Експериментальний розрахунок вірогідності для задачі про в'язнів
+{% endblock%}
+
+
+{% block body %}
+<div class="container">
+    <h1>Онлайн калькулятор вірогідності</h1>
+
+    <div class="container mt-5" >
+        <h1>РЕЗУЛЬТАТ:</h1>
+        <h2>{{ url_for('calc') }}</h2>
+    </div>
+
+</div>
+{% endblock%}

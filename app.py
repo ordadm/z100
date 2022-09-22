@@ -7,6 +7,13 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tort.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+class Result(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    qtyprisoner = db.Column(db.String(100), nullable=False)
+    intro = db.Column(db.String(300), nullable=False)
+    text = db.Column(db.Text, nullable=False)
+    date = db.Column(db.DateTime, default=datetime.utcnow)
+
 
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -23,6 +30,13 @@ class Article(db.Model):
 def index():
     return render_template('index.html')
 
+@app.route('/calc', methods=['POST', 'GET'])
+def calc():
+    return render_template('calc.html')
+
+@app.route('/result', methods=['POST', 'GET'])
+def result():
+   return render_template('result.html')
 
 @app.route('/create_article', methods=['POST', 'GET'])
 def create_article():

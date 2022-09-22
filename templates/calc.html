@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Експериментальний розрахунок вірогідності для задачі про в'язнів
+{% endblock%}
+
+
+{% block body %}
+<div class="container">
+    <h1>Онлайн калькулятор вірогідності</h1>
+
+    <div class="container mt-5" >
+        <h1>Введіть початкові дані</h1>
+        <form method="post">
+            <input type="text" name="qtyprisoner" id="qtyprisoner" class="form-control" placeholder="Кількість в'язнів"><br>
+            <input type="text" name="qtychance" id="qtychance" class="form-control"
+                   placeholder="Кількість скрині яку дозволино відкрити"><br>
+            <input type="text" name="qtymissions" id="title" class="form-control"
+                   placeholder="Кількість експериментів поспіль"><br>
+            <a class="btn btn-warning" href="\result">Порахувати ймовірність</a>
+
+        </form>
+    </div>
+
+</div>
+{% endblock%}
