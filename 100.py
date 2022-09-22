@@ -12,12 +12,18 @@
 # Хотя, на первый взгляд вероятность для одного заключенного 50%, а учитывая что их сто, вероятность что найдут все это 0.5 в 100 степени
 # В общем ничтоножно малая вероятность.
 # Ну что ж, начнем экспериментировать!
-
+import time
+import sys
 import random
+from tqdm import updt #прогресс бар
 
-qtyprisoner: int = 100000      # количество заключенных
-qtymissions: int = 10**2    # количество экспериментов
-qtychance: int = 50000       # количество коробочек которые можно открыть
+start_time = time.time()
+
+
+
+qtyprisoner: int = 100     # количество заключенных
+qtymissions: int = 1*10**5  # количество экспериментов
+qtychance: int = 50      # количество коробочек которые можно открыть
 positiv = 0                 # количество успешных экспериментов
 
 # создание комнаты
@@ -75,6 +81,7 @@ def mission(room) -> bool:
 # отработка эксперимента несколько раз для статистики
 for stat in range(1, qtymissions+1):
     aroom = makeroom()
+    updt(qtymissions, stat + .1,start_time,positiv)
 #    print(f'миссия №, {stat}, стартовала')
 #    print(aroom)
     if mission(aroom):
@@ -87,3 +94,4 @@ for stat in range(1, qtymissions+1):
 print(f'Количество заключенных {qtyprisoner}, количество попыток (открытие коробочек) {qtychance} \n'
       f'Пройденых миссий {positiv} из {qtymissions}, что является {round(positiv/qtymissions*100,4)}%')
 
+print("--- %s seconds ---" % (time.time() - start_time))
